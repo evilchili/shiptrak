@@ -1,0 +1,47 @@
+#!/usr/bin/perl
+
+use strict;
+use Data::Dumper;
+
+# <markers>
+#   <marker lat="37.441" lng="-122.141"/>
+#   <marker lat="37.322" lng="-121.213"/>
+# </markers>
+
+
+opendir (DIR, '/var/www/ship_data');
+foreach my $file ( grep { /\.cache$/ } readdir(DIR) ) {
+	my %entries;
+	eval { 
+		open ( IN, '/var/www/ship_data/'.$file ) or die "Couldn't open $file: $!";
+		my $VAR1;
+		local $/=undef;
+		eval('$VAR1 = '.<IN>);
+		%entries = %$VAR1;
+		close IN;
+	};
+	$@ and warn "Couldn't load data from cache $file: $@";
+	( my $out ) = ( $file =~ /(.*)\.cache/ );
+	$out .= '.xml';
+	if ( %entries ) {
+		open ( OUT, '>'.$out ) or die "Couldn't open $out: $!";
+		print OUT "<markers>\n";
+		foreach my $date ( sort keys %entries ) {
+			my $lat = &latlong2dec( @{ $entries{$date} }[0..3] );
+			my $lng = &latlong2dec( @{ $entries{$date} }[4..7] );
+			my ( $src, $comment ) = ( $entries{$date}[9] =~ /([^:]+):\s*(.*)/ );
+			$comment =~ s/\&/and/g;
+			my $coords = sprintf qq(%03d\d %02d.%02d %1s / %03d\d %02d.%02d %1s), @{ $entries{$date} }[0..7];
+			print OUT qq(<marker lat="$lat" lng="$lng" src="$src" date="$date" coords="$coords" comment="$comment"/>\n);
+		}
+		print OUT "</markers>";
+	}
+}
+
+# convert coordinates to decimal degrees
+#
+sub latlong2dec {
+	return  ( $_[0] + ($_[1] /60) + ($_[2]/60) /60 ) * ( $_[3] eq "S" || $_[3] eq "W" ? -1 : 1 );
+}
+
+

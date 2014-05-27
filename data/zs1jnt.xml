@@ -1,0 +1,73 @@
+<markers>
+<marker lat="-14.9833333333333" lng="-8.01666666666667" src="WINLINK" date="2005-07-10 19:00:00" coords="014d 59.00 S / 008d 01.00 W" comment="Steering 315@5 knots, all is well"/>
+<marker lat="-13.35" lng="-12.3" src="WINLINK" date="2005-07-12 19:00:00" coords="013d 21.00 S / 012d 18.00 W" comment="Steering 295 @ 6 knots, all si well"/>
+<marker lat="-10.3333333333333" lng="-20.0833333333333" src="WINLINK" date="2005-07-16 19:00:00" coords="010d 20.00 S / 020d 05.00 W" comment="Steering 195 @ 5.5 knots, all is well"/>
+<marker lat="-9.36666666666667" lng="-22.2" src="WINLINK" date="2005-07-17 19:00:00" coords="009d 22.00 S / 022d 12.00 W" comment="Steering 180 @ 6 knots, all is well"/>
+<marker lat="-7.41666666666667" lng="-26.1166666666667" src="WINLINK" date="2005-07-19 19:00:00" coords="007d 25.00 S / 026d 07.00 W" comment="Steering 220 @ 6 knots, all is well"/>
+<marker lat="-5.9" lng="-30.6" src="WINLINK" date="2005-07-21 19:00:00" coords="005d 54.00 S / 030d 36.00 W" comment="Steering 295 @ 7.5 knots, all is well"/>
+<marker lat="-5.36666666666667" lng="-33" src="WINLINK" date="2005-07-22 19:00:00" coords="005d 22.00 S / 033d 00.00 W" comment="Steering 290 @ 6 knots, all is well"/>
+<marker lat="-4.5" lng="-35.45" src="WINLINK" date="2005-07-23 19:00:00" coords="004d 30.00 S / 035d 27.00 W" comment="Steering 305 @ 7.5 knots, all is well"/>
+<marker lat="-2.28333333333333" lng="-38.0666666666667" src="WINLINK" date="2005-07-24 19:00:00" coords="002d 17.00 S / 038d 04.00 W" comment="Steering 305 @ 8 knots, passed Forteleza now to Tortola"/>
+<marker lat="-0.85" lng="-40.65" src="WINLINK" date="2005-07-25 19:00:00" coords="000d 51.00 S / 040d 39.00 W" comment="Steering 300 @ 7 knots, heading non-stop to Tortolas"/>
+<marker lat="0.8" lng="-42.7333333333333" src="WINLINK" date="2005-07-26 19:00:00" coords="000d 48.00 N / 042d 44.00 W" comment="Steering 330 @ 7.5 knots, all is well"/>
+<marker lat="2.03333333333333" lng="-45.1833333333333" src="WINLINK" date="2005-07-27 19:00:00" coords="002d 02.00 N / 045d 11.00 W" comment="Steering 325 @ 7 knots, all is well"/>
+<marker lat="5.38333333333333" lng="-47.9333333333333" src="WINLINK" date="2005-07-29 19:00:00" coords="005d 23.00 N / 047d 56.00 W" comment="Steering 300 @ 8 knots, motoring - no wind"/>
+<marker lat="7.18333333333333" lng="-52.55" src="WINLINK" date="2005-07-30 19:00:00" coords="007d 11.00 N / 052d 33.00 W" comment="Steering 290 @ 7.5 knots, all is well"/>
+<marker lat="8.13333333333333" lng="-54.55" src="WINLINK" date="2005-07-31 19:00:00" coords="008d 08.00 N / 054d 33.00 W" comment="Steering 310 @ 5.5 knots, 400nm to Barbados"/>
+<marker lat="10.0833333333333" lng="-56.25" src="WINLINK" date="2005-08-01 19:00:00" coords="010d 05.00 N / 056d 15.00 W" comment="Steering 310 @ 5 knots, 215nm to Barbados, kind of stormy"/>
+<marker lat="-33.6225" lng="18.1458333333333" src="WINLINK" date="2005-08-29 13:51:00" coords="033d 37.00 S / 018d 08.00 E" comment="Dep. Cape Town @ 10:30Z - all well on board."/>
+<marker lat="-31.8" lng="15.8833333333333" src="WINLINK" date="2005-08-30 13:32:00" coords="031d 48.00 S / 015d 53.00 E" comment="All well on board - motorsailing in showers."/>
+<marker lat="-30.3333333333333" lng="13.8" src="WINLINK" date="2005-08-31 12:51:00" coords="030d 20.00 S / 013d 48.00 E" comment="All well on board - 2 long fin tuna on the line this morning."/>
+<marker lat="-28.95" lng="12.0333333333333" src="WINLINK" date="2005-09-01 12:00:00" coords="028d 57.00 S / 012d 02.00 E" comment="All well on board but making very slow progress."/>
+<marker lat="-27.5333333333333" lng="9.68333333333333" src="WINLINK" date="2005-09-02 12:00:00" coords="027d 32.00 S / 009d 41.00 E" comment="Wind changed to S during the night - all well on board."/>
+<marker lat="-26.1" lng="7.41666666666667" src="WINLINK" date="2005-09-03 12:00:00" coords="026d 06.00 S / 007d 25.00 E" comment="Changing time zones to UTC (GMT) this afternoon - all well aboard."/>
+<marker lat="-24.5833333333333" lng="5.38333333333333" src="WINLINK" date="2005-09-04 12:00:00" coords="024d 35.00 S / 005d 23.00 E" comment="All well aboard - no fish in the hook today!"/>
+<marker lat="-23.3166666666667" lng="3.21666666666667" src="WINLINK" date="2005-09-05 12:00:00" coords="023d 19.00 S / 003d 13.00 E" comment="All well aboard - spinnaker in use for first time!"/>
+<marker lat="-20.1666666666667" lng="0.366666666666667" src="WINLINK" date="2005-09-07 07:36:00" coords="020d 10.00 S / 000d 22.00 E" comment="All well aboard - sailing in rain squalls with winds up to 30kn."/>
+<marker lat="-19.9" lng="0.000166666666666667" src="WINLINK" date="2005-09-07 12:00:00" coords="019d 54.00 S / 000d 00.00 E" comment="All well aboard - crossing the 0 meridian at noon!"/>
+<marker lat="-18.2333333333333" lng="-1.76683333333333" src="WINLINK" date="2005-09-08 12:00:00" coords="018d 14.00 S / 001d 46.00 W" comment="Another fish in the pan - 260 nm to St Helena (2 days)."/>
+<marker lat="-17.3" lng="-3.75" src="WINLINK" date="2005-09-09 12:00:00" coords="017d 18.00 S / 003d 45.00 W" comment="Expect to arrive St Helena noon tomorrow - all well on board."/>
+<marker lat="-15.3" lng="-7.01666666666667" src="WINLINK" date="2005-09-14 00:19:00" coords="015d 18.00 S / 007d 01.00 W" comment="Departed St. Helena 09:50 Z on 13/10/05"/>
+<marker lat="-13.9166666666667" lng="-9.9" src="WINLINK" date="2005-09-14 22:54:00" coords="013d 55.00 S / 009d 54.00 W" comment="Sailing under spinnaker - all well on board."/>
+<marker lat="-12.8833333333333" lng="-11.5333333333333" src="WINLINK" date="2005-09-16 04:23:00" coords="012d 53.00 S / 011d 32.00 W" comment="Had fresh fish for dinner - all well on board."/>
+<marker lat="-12.3" lng="-13.4666666666667" src="WINLINK" date="2005-09-17 01:00:00" coords="012d 18.00 S / 013d 28.00 W" comment="Sailing in rain squalls - All well on board."/>
+<marker lat="-11.6333333333333" lng="-15.35" src="WINLINK" date="2005-09-17 22:22:00" coords="011d 38.00 S / 015d 21.00 W" comment="All well on board - big cloud buildup behind us."/>
+<marker lat="-11.35" lng="-17.4833333333333" src="WINLINK" date="2005-09-18 22:00:00" coords="011d 21.00 S / 017d 29.00 W" comment="All well on board - Lost 2 big fish and 1 lure!"/>
+<marker lat="-10.6333333333333" lng="-19.6166666666667" src="WINLINK" date="2005-09-20 01:00:00" coords="010d 38.00 S / 019d 37.00 W" comment="Very slow progress in light airs."/>
+<marker lat="-10" lng="-21.0833333333333" src="WINLINK" date="2005-09-21 00:10:00" coords="010d 00.00 S / 021d 05.00 W" comment="Flat sea - slow progress in light airs."/>
+<marker lat="-9.41666666666667" lng="-22.6666666666667" src="WINLINK" date="2005-09-21 23:00:00" coords="009d 25.00 S / 022d 40.00 W" comment="All well on board - still slow progress in light airs."/>
+<marker lat="-7.71666666666667" lng="-25.2166666666667" src="WINLINK" date="2005-09-23 04:00:00" coords="007d 43.00 S / 025d 13.00 W" comment="All well on board - good wind today."/>
+<marker lat="-6.68333333333333" lng="-27.0666666666667" src="WINLINK" date="2005-09-23 21:00:00" coords="006d 41.00 S / 027d 04.00 W" comment="All well on board - 173 nm noon to noon run."/>
+<marker lat="-6.03333333333333" lng="-29.8333333333333" src="WINLINK" date="2005-09-24 23:00:00" coords="006d 02.00 S / 029d 50.00 W" comment="Nice yellow fin tuna on hook today!"/>
+<marker lat="-5.4" lng="-71.6666666666667" src="WINLINK" date="2005-09-25 19:00:00" coords="005d 24.00 S / 071d 40.00 W" comment="Steering 290 @ 5 knots, all is well"/>
+<marker lat="-5.31666666666667" lng="-31.9166666666667" src="WINLINK" date="2005-09-25 21:17:00" coords="005d 19.00 S / 031d 55.00 W" comment="Will be off Brazilian coast tomorrow - all well aboard."/>
+<marker lat="-4.05" lng="-34.6" src="WINLINK" date="2005-09-27 02:00:00" coords="004d 03.00 S / 034d 36.00 W" comment="All well aboard - running up Brazilian coast."/>
+<marker lat="-3.08333333333333" lng="-36.8833333333333" src="WINLINK" date="2005-09-27 23:00:00" coords="003d 05.00 S / 036d 53.00 W" comment="All well aboard - now in good current."/>
+<marker lat="-1.76666666666667" lng="-36.8333333333333" src="WINLINK" date="2005-09-28 19:00:00" coords="001d 46.00 S / 036d 50.00 W" comment="Steering 311 @ 7 knots, all is well"/>
+<marker lat="-1.18333333333333" lng="-39.45" src="WINLINK" date="2005-09-29 03:00:00" coords="001d 11.00 S / 039d 27.00 W" comment="Now 5 hours behind SAST - All well aboard."/>
+<marker lat="-0.283333333333333" lng="-41.4833333333333" src="WINLINK" date="2005-09-29 22:35:00" coords="000d 17.00 S / 041d 29.00 W" comment="Crossing equator tonight!"/>
+<marker lat="1.11666666666667" lng="-43.8333333333333" src="WINLINK" date="2005-10-01 00:00:00" coords="001d 07.00 N / 043d 50.00 W" comment="All well aboard - crossed equator @ 02:10 yesterday."/>
+<marker lat="2" lng="-45.9" src="WINLINK" date="2005-10-01 19:00:00" coords="002d 00.00 N / 045d 54.00 W" comment="Steering 305 @ 7 knots, all is well"/>
+<marker lat="2.48333333333333" lng="-46.3666666666667" src="WINLINK" date="2005-10-02 00:02:00" coords="002d 29.00 N / 046d 22.00 W" comment="All well aboard - in 2.5 knot current."/>
+<marker lat="4.1" lng="-48.3666666666667" src="WINLINK" date="2005-10-02 19:00:00" coords="004d 06.00 N / 048d 22.00 W" comment="Steering 290 @ 10.5 knots, all is well"/>
+<marker lat="4.46666666666667" lng="-48.9333333333333" src="WINLINK" date="2005-10-03 00:00:00" coords="004d 28.00 N / 048d 56.00 W" comment="All well aboard - in 4 knot current."/>
+<marker lat="6" lng="-50.7" src="WINLINK" date="2005-10-03 19:00:00" coords="006d 00.00 N / 050d 42.00 W" comment="Steering 300 @ 5.5 knots, all is well"/>
+<marker lat="6.18333333333333" lng="-51.15" src="WINLINK" date="2005-10-04 00:03:00" coords="006d 11.00 N / 051d 09.00 W" comment="All well aboard - 189 nm run today!"/>
+<marker lat="7.31666666666667" lng="-53.9166666666667" src="WINLINK" date="2005-10-05 01:00:00" coords="007d 19.00 N / 053d 55.00 W" comment="Changed time zones again, now 6 hours behind SAST."/>
+<marker lat="8.5" lng="-55.4666666666667" src="WINLINK" date="2005-10-05 19:00:00" coords="008d 30.00 N / 055d 28.00 W" comment="Steering 315 @ 6 knots, all is well"/>
+<marker lat="8.63333333333333" lng="-55.9666666666667" src="WINLINK" date="2005-10-06 00:00:00" coords="008d 38.00 N / 055d 58.00 W" comment="All well aboard - Looking at Trinidad Saturday morning."/>
+<marker lat="9.63333333333333" lng="-57.55" src="WINLINK" date="2005-10-06 19:00:00" coords="009d 38.00 N / 057d 33.00 W" comment="Steering 295 @ 5.5 knots, all is well"/>
+<marker lat="9.95" lng="-58.2833333333333" src="WINLINK" date="2005-10-07 01:00:00" coords="009d 57.00 N / 058d 17.00 W" comment="All well aboard."/>
+<marker lat="10.7666666666667" lng="-60.25" src="WINLINK" date="2005-10-07 19:00:00" coords="010d 46.00 N / 060d 15.00 W" comment="Steering 285 @ 6.5 knots, all is well"/>
+<marker lat="10.9666666666667" lng="-60.8166666666667" src="WINLINK" date="2005-10-08 00:05:00" coords="010d 58.00 N / 060d 49.00 W" comment="All well aboard - arriving Trinidad in morning."/>
+<marker lat="10.7166666666667" lng="-61.6666666666667" src="WINLINK" date="2005-10-10 15:00:00" coords="010d 43.00 N / 061d 40.00 W" comment="All well aboard - Departed Trinidad @ 10:30."/>
+<marker lat="11.1166666666667" lng="-61.5666666666667" src="WINLINK" date="2005-10-10 19:00:00" coords="011d 07.00 N / 061d 34.00 W" comment="Steering 340 @ 7 knots, all si well"/>
+<marker lat="12.8833333333333" lng="-62.3666666666667" src="WINLINK" date="2005-10-11 12:00:00" coords="012d 53.00 N / 062d 22.00 W" comment="Laptop keyboard is US"/>
+<marker lat="15.3666666666667" lng="-63.3" src="WINLINK" date="2005-10-12 12:00:00" coords="015d 22.00 N / 063d 18.00 W" comment="190 miles to Tortola"/>
+<marker lat="17.95" lng="-64.3166666666667" src="WINLINK" date="2005-10-13 14:00:00" coords="017d 57.00 N / 064d 19.00 W" comment="30 miles to Tortola"/>
+<marker lat="18.3833333333333" lng="-64.7666666666667" src="WINLINK" date="2005-10-15 18:00:00" coords="018d 23.00 N / 064d 46.00 W" comment="Departed Tortola 16:10 UTC"/>
+<marker lat="18.9" lng="-66.2166666666667" src="WINLINK" date="2005-10-16 12:00:00" coords="018d 54.00 N / 066d 13.00 W" comment="Main sheet traveller exploded last night!"/>
+<marker lat="19.4833333333333" lng="-67.9833333333333" src="WINLINK" date="2005-10-17 12:00:00" coords="019d 29.00 N / 067d 59.00 W" comment="Sailing in very light airs during the night."/>
+<marker lat="19.9333333333333" lng="-69.8833333333333" src="WINLINK" date="2005-10-18 12:00:00" coords="019d 56.00 N / 069d 53.00 W" comment="Sailing in squalls - all well on board."/>
+<marker lat="21.1333333333333" lng="-71.3166666666667" src="WINLINK" date="2005-10-19 15:14:00" coords="021d 08.00 N / 071d 19.00 W" comment=""/>
+</markers>

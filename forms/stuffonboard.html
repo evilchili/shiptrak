@@ -1,0 +1,407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>MMSN (Inventory Data Entry)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="MSSmartTagsPreventParsing" content="TRUE">
+<meta name="copyright" content="2004 Maritime Mobile Service Network">
+<meta name="rating" content="General">
+<meta name="distribution" content="Global">
+<meta name="language" content="English">
+<meta name="doc-type" content="Public">
+<meta name="doc-class" content="Completed">
+<meta name="doc-rights" content="Public Domain">
+<meta name="resource-type" content="document">
+<meta name="robots" content="all,index,follow">
+<meta name="revisit-after" content="5 days">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="Fri, 31 Dec 1999 12:00:00 EST">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<link rel="stylesheet" type="text/css" href="http://mmsn.org/css/mmsn.css">
+<script language="JavaScript" type="text/javascript">
+<!--
+if( top.parent.frames.length > 0)
+top.parent.location.href=self.location.href;
+//-->
+</script>
+<script language="JavaScript1.1" type="text/javascript">
+
+function right(e) {
+if (navigator.appName == 'Netscape' && 
+(e.which == 3 || e.which == 2))
+return false;
+else if (navigator.appName == 'Microsoft Internet Explorer' && 
+(event.button == 2 || event.button == 3)) {
+alert("Sorry, you can't do that! That command is not allowed.");
+return false;
+}
+return true;
+}
+document.onmousedown=right;
+document.onmouseup=right;
+if (document.layers) window.captureEvents(Event.MOUSEDOWN);
+if (document.layers) window.captureEvents(Event.MOUSEUP);
+window.onmousedown=right;
+window.onmouseup=right;
+</script>
+<script language="javascript" type="text/javascript">
+<!--
+function doNothing() {
+	null
+}
+
+function changeStatus(msg) {
+	window.status = msg
+	return true
+}
+//-->
+</script>
+<script>
+//Block Right Clicking - by Blackbox Hosting
+//Credit must stay intact for use
+
+var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+var EnableRightClick = 0;
+if(isNS) 
+document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+function mischandler(){
+  if(EnableRightClick==1){ return true; }
+  else {return false; }
+}
+function mousehandler(e){
+  if(EnableRightClick==1){ return true; }
+  var myevent = (isNS) ? e : event;
+  var eventbutton = (isNS) ? myevent.which : myevent.button;
+  if((eventbutton==2)||(eventbutton==3)) return false;
+}
+function keyhandler(e) {
+  var myevent = (isNS) ? e : window.event;
+  if (myevent.keyCode==96)
+    EnableRightClick = 1;
+  return;
+}
+document.oncontextmenu = mischandler;
+document.onkeypress = keyhandler;
+document.onmousedown = mousehandler;
+document.onmouseup = mousehandler;
+
+</script>
+</head>
+<body>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="120" bgcolor="#001088" valign="top" align="left" rowspan="2"><img border="0" src="http://mmsn.org/images/logos/mmsn-logo1a.gif" width="120" height="120"></td>
+    <td width="100%" bgcolor="#ffffff" valign="middle" align="center"><br>
+      <img border="0" src="http://mmsn.org/images/mmsn-label.gif" width="503" height="91"> </td>
+  </tr>
+  <tr>
+    <td width="100%" bgcolor="#ffffff" valign="middle" align="right" class="tinytext">&nbsp;</td>
+  </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" valign="middle" align="right" bgcolor="001088" class="tinytext">&nbsp;</td>
+  </tr>
+</table>
+<div align="center" class="titletextbig"><br>
+  <br>
+  	<font size="5">Maritime Mobile Service Network</font><br>
+  	<font size="4">Vessel Inventory Checklist</font></div>
+<div align="justify"><br>
+  <br>
+  <blockquote class="titletext">Please take a few minutes to complete this form and submit it to the Maritime Mobile Service Network.
+  &nbsp; The information will be kept on file and retrieved in the event of an emergency.&nbsp; Submission of the information
+  is voluntary and will be removed upon your request.&nbsp; Before submitting this form, print a copy and leave it with someone in your 
+  family or a good friend.<br>
+    <br>
+    <b><font color="#FF0000">ALL SUBMISSIONS ARE HELD IN CONFIDENCE AND WILL NOT BE RELEASED TO A COMMERCIAL THIRD PARTY.&nbsp; THIS INFORMATION IS GATHERED SOLELY TO ASSIST THE UNITED STATES COAST GUARD OR ANY OTHER SEARCH &amp; RESCUE AUTHORITY</font></b>.</blockquote>
+</div>
+<br>
+<div align="center"><img src="images/bluebar.jpg" alt="" width="500" height="5" border="0"></div>
+<br>
+<form action="http://mmsn.org/formmail-1.asp" method="POST" name="Form1" id="app" lang="JavaScript">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" width="750">
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Ham Radio Call</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="HamCall" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Marine Call</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="MarineCall" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Boat Name</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25" class="tinytext"><input type="text" name="BoatName" size="37" maxlength="37">
+&nbsp; <strong><font color="#FF0000" size="2">(Indicate Sailing Vessel, Yacht...)</font></strong></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Registration Number</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="BoatReg" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">MMSI Number</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="MMSI_Number" size="20"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Country Registered</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="CountryReg" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Owner</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="Owner" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Home Port</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="HomePort" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">&nbsp;</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="center" class="titletext"><b> <font face="Arial" color="#0000FF">Vessel Description</font></b></td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Make Of Vessel</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="500" height="25"><input type="text" name="MakeOfVessel" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Type Of Vessel</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="VesselType" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Length Of Vessel</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="500" height="25"><input type="text" name="LengthOfVessel" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Sail Numbers</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="SailNo" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Sail Colo<span lang="en-ca">u</span>r</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="SailColor" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Hull Colo<span lang="en-ca">u</span>r</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="HullColor" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Trim Colo<span lang="en-ca">u</span>r</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="TrimColor" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Sail Cover Colo<span lang="en-ca">u</span>r</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="SailCoverColor" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Motor Make/Type</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="Motor" size="37" maxlength="37"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="center" class="titletext">&nbsp;</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="center" class="titletext"><b> <font face="Arial" color="#0000FF">Equipment Onboard</font></b></td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="220" height="26" align="right" class="titletext">406 EPIRB</td>
+      <td width="4" height="26">&nbsp;</td>
+      <td width="476" height="26" class="titletext"><input type="checkbox" name="406_EPIRB" value="ON">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font face="Arial"> <strong>Registration Number</strong></font>&nbsp;&nbsp;
+        <input type="text" name="EPIRB_Reg" size="30" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">B EPIRB</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="B_EPIRB" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Marine VHF</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="MarineVHF" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Sat C Telephone</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25" class="titletext"><input name="Sat_C_Tel" type="checkbox" value="ON">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font face="Arial">Sat C Number</font></b>
+        <input name="Sat_C_Tel_No" type="text" size="30"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Marine SSB Radio</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="MarineSSB" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Life Raft Onboard</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="LifeRaft" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Weather Fax</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="WeatherFax" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Shipboard Email</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25" class="titletext"><input type="checkbox" name="ShipboardEmail" value="ON">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font face="Arial">Email Address</font></b>&nbsp;&nbsp;
+        <input type="text" name="EmailAddress" size="30" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Radar</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="Radar" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">GPS</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="GPS" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Wind Vane Steering</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="WindVaneSteering" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Auto Pilot</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="AutoPilot" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Fuel Capacity</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25" class="tinytext"><input type="text" name="FuelCapacity" size="30" maxlength="30">
+&nbsp;<font color="#FF0000"> <strong>Specify Gallons or Litres</strong></font></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Water Capacity</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25" class="tinytext"><input type="text" name="WaterCapacity" size="30" maxlength="30">
+&nbsp; <font color="#FF0000"><strong>Specify Gallons or Litres</strong></font></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Water Maker</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="checkbox" name="WaterMaker" value="ON"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">&nbsp;</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="center" class="titletext"><b> <font face="Arial" color="#0000FF">Passengers &amp; Crew</font></b></td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Number Of Persons Onboard</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="POB" size="10" maxlength="10">
+      </td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Names Of Persons<br>
+        (include ages and nationality)</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><textarea rows="4" name="NamesOfPOB" cols="50"></textarea>
+        <br>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Emergency Contact Person:</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="EmergContactPerson" size="54" maxlength="54"></td>
+    </tr>
+    <tr>
+      <td width="220" height="44" align="right" class="titletext">Emergency Phone:</td>
+      <td width="4" height="44">&nbsp;</td>
+      <td width="476" height="44" class="tinytext"><input type="text" name="EmergPhone" size="30" maxlength="30">
+&nbsp;&nbsp; <strong>Remember Country Code</strong></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Comments:<br>
+        (any other equipment or comments you may have)</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><textarea rows="4" name="Comments" cols="50"></textarea></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">&nbsp;</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Submitted By:</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="RealName" size="30" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Date Submitted:</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="DateSubmitted" size="30" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td width="220" height="25" align="right" class="titletext">Email Address:</td>
+      <td width="4" height="25">&nbsp;</td>
+      <td width="476" height="25"><input type="text" name="FromMail" size="30" maxlength="30"></td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <div align="center"><img border="0" src="http://mmsn.org/images/bluebar.jpg" width="500" height="5"></div>
+  <div align="center" class="titletext"><br>
+    <font face="Arial"><font color="#FF0000">Please check the accuracy of the data before submitting.</font><br>
+    Thank-you for your submission.<br>
+    Click SUBMIT to send the information to The Maritime Mobile Service Network.</font><br>
+    <br>
+    <input name="B1" type="submit" id="B1" value="Submit">
+&nbsp;&nbsp;&nbsp;&nbsp;
+    <input name="B2" type="reset" id="B2" value="Reset">
+    <br>
+    <br>
+  </div>
+</form>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+  <tr>
+    <td><div>&nbsp;</div></td>
+    <td width="50%" align="left" class="tinytext"><a href="disclaimer.html" style="text-decoration: none">Copyright &copy; 
+	2008</a><br>
+      <font color="#001088">The Maritime Mobile Service Network<br>
+      All rights reserved<br>
+      </font></td>
+    <td>&nbsp;</td>
+    <td width="50%" align="right" class="tinytext"><font color="#001088">Last Updated: 
+	January 3, 2008<br>
+      <br>
+      </font><br>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

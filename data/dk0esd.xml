@@ -1,0 +1,12 @@
+<markers>
+<marker lat="51.4333333333333" lng="6.8" src="WINLINK" date="2005-07-14 21:28:00" coords="051d 26.00 N / 006d 48.00 E" comment="landmobile in the area of Hamburg"/>
+<marker lat="51.4333333333333" lng="6.8" src="WINLINK" date="2005-07-14 21:35:00" coords="051d 26.00 N / 006d 48.00 E" comment="landmobile in the area of Duisburg; in mission related to the World Games 2005"/>
+<marker lat="53.65" lng="6.8" src="WINLINK" date="2005-07-17 19:23:00" coords="053d 39.00 N / 006d 48.00 E" comment="landmobile in the area of Hamburg"/>
+<marker lat="53.65" lng="10.05" src="WINLINK" date="2005-07-20 13:23:00" coords="053d 39.00 N / 010d 03.00 E" comment="landmobile in the area of Hamburg"/>
+<marker lat="51.4333333333333" lng="6.8" src="WINLINK" date="2005-07-24 15:35:00" coords="051d 26.00 N / 006d 48.00 E" comment="landmobile in the area of Duisburg; in mission related to the World Games 2005"/>
+<marker lat="53.65" lng="10.05" src="WINLINK" date="2005-07-26 09:04:00" coords="053d 39.00 N / 010d 03.00 E" comment="landmobile in the area of Hamburg"/>
+<marker lat="27.75" lng="10.05" src="WINLINK" date="2005-08-28 10:45:00" coords="027d 45.00 N / 010d 03.00 E" comment="landmobile in the area of Gran Canaria"/>
+<marker lat="27.75" lng="-15.55" src="WINLINK" date="2005-08-30 19:09:00" coords="027d 45.00 N / 015d 33.00 W" comment="landmobile in the area of Gran Canaria"/>
+<marker lat="27.75" lng="-15.55" src="WINLINK" date="2005-09-01 17:20:00" coords="027d 45.00 N / 015d 33.00 W" comment="landmobile in the area of Gran Canaria"/>
+<marker lat="53.65" lng="-15.55" src="WINLINK" date="2005-09-13 17:59:00" coords="053d 39.00 N / 015d 33.00 W" comment="landmobile in the area of Hamburg"/>
+</markers>
