@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block main %}
+	<div id="map"></div>
+    <div id='log'>
+        <table id='log_table'>
+        </table>
+    </div>
+	<div id='log_control'>
+        <a href='#' onclick='toggle_log(event);' id='log_toggle' title='Show/Hide Log Entries'><span class='glyphicon glyphicon-list'></span>
+        <img title='loading...' id='loading_img' src="{% static "img/loader.gif" %}">
+        <span id='log_header'></span>
+        </a>
+	</div>
+	<script>
+		var STATIC_URL = "{{ STATIC_URL }}";
+	</script>
+	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&sensor=true"></script>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="{% static "js/shiptrak.js" %}" type="text/javascript"></script>
+{% endblock %}
+{% comment %}
+:vim: set syn=htmldjango
+{% endcomment %}
