@@ -9,33 +9,7 @@
         <style type="text/css" media="screen,print">@import url({% static "css/shiptrak.css" %});</style> 
 	</head>
     <body>
-        {% block nav %}
-            <!-- Fixed navbar -->
-            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <div id='map-links nav-container'>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a onclick='ShipTrak.printVersion();' title='View Printable'><span class='glyphicon glyphicon-print'></span></a></li>
-                        <li><a href="mailto:ShipTrak%20Admin%20%3Cve3ii@mmsn.org%3E?subject=Question About ShipTrak v4.0" title="Contact ShipTrak"><span class='glyphicon glyphicon-envelope'></span></a></li>
-                        <li><a href="/faq" title='About ShipTrak'><span class='glyphicon glyphicon-question-sign'></span></a></li>
-                        <li><a onclick='ShipTrak.showShare();' title='Share This Map'><span class='glyphicon glyphicon-share'><?span></a></li>
-                        <li><a onclick='ShipTrak.openFull();' title='View Full-Screen'><span class='glyphicon glyphicon-fullscreen'></span></a></li>
-                    </ul>
-                </div>
-                <div>
-                    <form id='map_form' class='navbar-form navbar-left'>
-                        <input id='id_callsign' name='callsign' class='form-control' placeholder='CallSign'>
-                        <select id='id_filter' name='filter' class='form-control'>
-                            <option selected value='0'>All Positions</option>
-                            <option value='30'>Last 30 days</option>
-                            <option value='60'>Last 60 days</option>
-                            <option value='365'>Last 1 year</option>
-                        </select>
-                        <input type='submit' class='btn btn-primary' value='View'>
-                    </form>
-                </div>
-              </div>
-            </div>
-        {% endblock %}
+        {% block nav %}{% endblock %}
         {% block main %}
             <div id='content' class="container" role="main">
             {% block content %}
@@ -53,9 +27,10 @@
             <input class='share_iframe form-control' type='text'>
             </p>
             <p>
-            Click this link to send this page via email:
+			Click this link to send this page via email:<br>
 			<a class='share_email' href=''>Email This Map</a>
             </p>
+			<center><button onclick='closePopup(event);' class='btn btn-primary'>Okay</button></center>
         </div>
     </body>
 </html>

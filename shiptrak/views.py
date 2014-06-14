@@ -116,10 +116,15 @@ def _yotreps_positions(callsign):
         'to': datetime.now().strftime('%Y-%m-%d %T'),
         'au': 999999999
     }
-    res = requests.get(
-        settings.YOTREPS_API_URL,
-        params=params
-    )
+    try:
+        res = requests.get(
+            settings.YOTREPS_API_URL,
+            params=params,
+            timeout=5,
+        )
+    except requests.exceptions.Timeout:
+        pass
+
     if res.status_code != 200:
         error = "Unable to retrieve data from YOTREPS. Please try again."
     else:
@@ -155,10 +160,14 @@ def _winlink_positions(callsign):
     attempts = 10
     while attempts:
         attempts = attempts - 1
-        res = requests.post(
-            "%s/positionReports/get.json" % settings.WINLINK_API_URL,
-            data={'callsign': callsign},
-        )
+        try:
+            res = requests.post(
+                "%s/positionReports/get.json" % settings.WINLINK_API_URL,
+                data={'callsign': callsign},
+                timeout=5,
+            )
+        except requests.exceptions.Timeout:
+            pass
         if res.status_code == 200:
             data = ujson.loads(res.content)
             # {u'ErrorCode': 0, u'PositionReports': [

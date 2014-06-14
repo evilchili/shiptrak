@@ -1,16 +1,45 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block main %}
-	<div id="map"></div>
-    <div id='log'>
-        <table id='log_table'>
-        </table>
+{% block nav %}
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div id='map-links nav-container'>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a onclick='ShipTrak.printVersion();' title='View Printable'><span class='glyphicon glyphicon-print'></span></a></li>
+                <li><a href="mailto:ShipTrak%20Admin%20%3Cve3ii@mmsn.org%3E?subject=Question About ShipTrak v4.0" title="Contact ShipTrak"><span class='glyphicon glyphicon-envelope'></span></a></li>
+                <li><a href="/faq" title='About ShipTrak'><span class='glyphicon glyphicon-question-sign'></span></a></li>
+                <li><a onclick='ShipTrak.showShare();' title='Share This Map'><span class='glyphicon glyphicon-share'></span></a></li>
+                <li><a onclick='ShipTrak.openFull();' title='View Full-Screen'><span class='glyphicon glyphicon-fullscreen'></span></a></li>
+            </ul>
+        </div>
+        <div>
+            <form id='map_form' class='navbar-form navbar-left'>
+                <input id='id_callsign' name='callsign' class='form-control' placeholder='CallSign'>
+                <select id='id_filter' name='filter' class='form-control'>
+                    <option selected value='0'>All Positions</option>
+                    <option value='30'>Last 30 days</option>
+                    <option value='60'>Last 60 days</option>
+                    <option value='365'>Last 1 year</option>
+                </select>
+                <input type='submit' class='btn btn-primary' value='View'>
+            </form>
+        </div>
+      </div>
     </div>
-	<div id='log_control'>
-        <a href='#' onclick='toggle_log(event);' id='log_toggle' title='Show/Hide Log Entries'><span class='glyphicon glyphicon-list'></span>
-        <img title='loading...' id='loading_img' src="{% static "img/loader.gif" %}">
-        <span id='log_header'></span>
-        </a>
+{% endblock nav %}
+{% block main %}
+	<div id='wrapper'>
+		<div id="map"></div>
+	    <div id='log'>
+	        <table id='log_table'>
+	        </table>
+	    </div>
+		<div id='log_control'>
+	        <a href='#' onclick='toggle_log(event);' id='log_toggle' title='Show/Hide Log Entries'><span class='glyphicon glyphicon-list'></span>
+	        <img title='loading...' id='loading_img' src="{% static "img/loader.gif" %}">
+	        <span id='log_header'></span>
+	        </a>
+		</div>
 	</div>
 	<script>
 		var STATIC_URL = "{{ STATIC_URL }}";

@@ -1,18 +1,26 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block nav %}
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div id='map-links nav-container'>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='/' title='Back To Map'><span class='glyphicon glyphicon-home'></span></a></li>
+            </ul>
+        </div>
+        <div>
+			<h4>About ShipTrak</h4>
+        </div>
+      </div>
+    </div>
+{% endblock nav %}
+
 {% block title %}
 About ShipTrak
 {% endblock %}
 
 {% block content %}
-<div class='jumbotron'>
-    <h1>Ship<i>Trak</i></h1>
-    <p>
-    Follow the positions of RVs and ships at sea using <a href="http://pangolin.co.nz" target="_blank">YOTREPS</a> and <a href="http://winlink.org" target="_blank">WinLink</a>.
-    </p>
-</div>
-<h2>About Ship<i>Trak</i></h2>
 <div class='row'>
     <div class='col col-md-10'>
         <p>

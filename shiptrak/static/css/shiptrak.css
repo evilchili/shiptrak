@@ -3,8 +3,9 @@ body {
     font-size: 16px;
 	margin:0;
 	padding:0;	
-    background: #dadfeb;
+    background: #2e5b7e;
     color: #444;
+	overflow:hidden;
 }
 
 a, a:visited, a:active, a:hover {
@@ -169,7 +170,7 @@ a:active, a:hover {
     bottom:10px;
     left:10px;
 	right:10px;
-    background-color: #222;
+    background: #2e5b7e;
     z-index:9;
     max-height:30%;
 	overflow:auto;	
@@ -177,7 +178,7 @@ a:active, a:hover {
 }
 #log table {
     width: 100%;
-    background: #DADFEB;
+    background: #EEE;
     margin-bottom: 30px;
 }
 #log_table th, 
@@ -190,7 +191,7 @@ a:active, a:hover {
 	position:absolute;
 	bottom:10px;
     left:10px;
-	background-color: #222;
+    background: #2e5b7e;
 	z-index:10;
     padding:5px;
     font-size:0.8em;
@@ -221,6 +222,7 @@ a:active, a:hover {
     float:left;
 }
 .navbar {
+    background: #2e5b7e;
     padding: 0px 15px;
 }
 
@@ -235,4 +237,35 @@ a:active, a:hover {
 
 #map_form input {
     margin: 3px 0px;
+}
+
+.navbar h4 {
+	color: #DDD;
+}
+
+.row {
+	margin: 2em 0;
+}
+
+.print #log {
+	position: relative;
+	overflow: show;
+	max-height: auto;
+	background: transparent;
+	bottom: auto;
+	left: auto;
+	right: auto;
+	top: auto;
+	max-height: auto;
+}
+.print table {
+	margin-bottom: 0px;
+	background: transparent;
+}
+.print table tr {
+	background: transparent;
+	border-bottom: 1px solid #DDD;
+}
+.print #log_table {
+	background: transparent;
 }

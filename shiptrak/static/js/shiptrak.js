@@ -164,12 +164,16 @@ $("document").ready(function() {
 	// Resize the map to a good size relative to the browser window.
 	//
 	ShipTrak.resizeMap = function() {
-		var e = getWindowSize();
-	
 		var mObj = $("#map");
-		
+
+		if (ShipTrak.isPrint) {
+			mObj.css({'width': '100%', 'height': '500px'});
+			return;
+		}
+
+		var e = getWindowSize();
 		var hMargin=10;
-		var vMargin=10;
+		var vMargin=60;
 		if ( mObj.width() != (e.width-hMargin) ) {
 			mObj.width(e.width-hMargin)+'px';
 			mObj.height(e.height-vMargin)+'px';
@@ -197,12 +201,16 @@ $("document").ready(function() {
 		
 		// unless we're showing the print version, set up some initial page styles 
 		// and event listeners for the UI.
-		if ( ! ShipTrak.isPrint ) {
-			document.body.style.backgroundColor="black";
-			document.body.style.overflow="hidden";
+		if ( ShipTrak.isPrint ) {
+			$("#wrapper").addClass('print');
+			$('.navbar').hide();
+			$('body').css({'overflow': 'auto', 'background': 'transparent'});
+		} else {
+			$('body').css({'overflow': 'auto'});
 			var mObj = $("#map");
 			mObj.css({
                 position:'absolute',
+				top: '50px',
 			    bottom: '0px',
 			    overflow: 'hidden'
             });
@@ -213,48 +221,12 @@ $("document").ready(function() {
 		ShipTrak.resizeMap();
         ShipTrak.makeMap();	
 	
-	    /*
-		var uxcontrol = document.createElement("div");
-		uxcontrol.id="shiptrakUIContainer";
-		uxcontrol.innerHTML = "<div id='leftFloater'>" + 
-			"<span id='interface'>" + 
-			"Callsign: <input type=text onkeyup='keyup(event)' id='callsign' style='width:75px;' />" + 
-		 	"Show: <select id='filter'>" + 
-			"<option selected value='0'>All</option>" + 
-			"<option value='30'>Last 30 days</option>" + 
-			"<option value='60'>Last 60 days</option>" + 
-			"<option value='365'>Last 1 year</option>" + 
-			"</select>&nbsp;" + 
-			"<input type=button onclick='load();' value='View' /></span>" + 
-			"<span id='embeddedLabel'></span>" + 
-			"&nbsp;<span id='mapTitle'></span></div>"; 
-	
-		if ( isEmbedded ) {
-			uxcontrol.innerHTML += "<div id='rightFloater'><a href='http://shiptrak.org/?callsign=" + args['callsign']+"' " +
-				"title='View Larger' target='_blank' ><img src='" + STATIC_URL + "img/fullscreen.png' border='0' /></a></div>";
-	
-		} else if ( !isPrint )  {
-			uxcontrol.innerHTML += "<div id='rightFloater'>" + 
-				"<a href='javascript:printVersion();' title='Print' ><img src='" + STATIC_URL + "img/print.png' border='0' /></a>" + 
-				"<a href='faqv3.html' title='Frequently Asked Questions'><img src='" + STATIC_URL + "img/faq.png' border='0' /></a>" + 
-				//"<a href='http://htmlgear.tripod.com/guest/control.guest?u=mmsn&i=1&a=view' target='_blank' title='Sign Our Guestbook'><img src='guestbook.png' border='0' /></a>" + 
-				"<a href='mailto:ShipTrak%20Admin%20%3Cve3ii@mmsn.org%3E?subject=Question About ShipTrak v3.1' title='Contact ShipTrak'><img src='" + STATIC_URL + "img/contact.png' border='0' /></a>" + 
-				"<a href='javascript:showShare();' title='Share This Map'><img src='" + STATIC_URL + "img/link.png' border='0' /></a>" + 
-				"<a href='javascript:showAbout();' title='Credits'><img src='" + STATIC_URL + "img/about.png' border='0' /></a>" + 
-				( isFullscreen==true ? 	
-					"<a href='javascript:window.close();' title='Close Fullscreen'><img src='" + STATIC_URL + "img/close.png' border='0' /></a>" : 
-					"<a href='javascript:openFull();' title='Open Fullscreen'><img src='" + STATIC_URL + "img/fullscreen.png' border='0' /></a>" );
-		}
-		map.controls[google.maps.ControlPosition.TOP_LEFT].push(uxcontrol);
-	    */
-		
-        $("#log").hide();
-        $("#log_toggle").attr('disabled', true);
-
 		// if we're not showing the print version, add the log control
 		if ( ShipTrak.isPrint ) {
 			$('#log_control').hide();
         } else {
+			$("#log").hide();
+	        $("#log_toggle").attr('disabled', true);
     		$('#id_callsign').focus();
         }
 
@@ -268,7 +240,9 @@ $("document").ready(function() {
                 $("#id_filter").val(ShipTrak.args['filter']);
     		}
 
-            $("#log_control").fadeIn('fast');
+			if (! ShipTrak.isPrint) {
+	            $("#log_control").fadeIn('fast');
+			}
     	
     		// The interface is all set, so now go get some data
     		if ( ShipTrak.args['callsign'] ) {
@@ -446,7 +420,7 @@ $("document").ready(function() {
 	
 	// open a near-fullscreen browser window
 	ShipTrak.openFull = function() {
-		var url = getMapURL();
+		var url = window.location.href;
 		url += ( url.indexOf('?') > -1 ? '&' : '?' ) + '_m=f';
 		if (navigator.appName == "Microsoft Internet Explorer") { 
 			window.open(url, '', 'fullscreen=yes, scrollbars=no, resizable=yes').focus();
@@ -455,16 +429,9 @@ $("document").ready(function() {
 		}
 	}
 	
-	// return the url for the current map
-	ShipTrak.getMapURL = function() {
-		var callsign 	= $('#id_callsign').val().trim();
-		var filter 		= $('#id_filter').val().trim();
-		return 'http://shiptrak.org/?callsign=' + callsign+"&filter="+filter;
-	}
-	
 	// open a browser window with a printable version of the map
 	ShipTrak.printVersion = function() {
-		var url = getMapURL();
+		var url = window.location.href;
 		url += ( url.indexOf('?') > -1 ? '&' : '?' ) + '_p=1';
 		window.open(url,"","width=600,height=400");	
 	}
