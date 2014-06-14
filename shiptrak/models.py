@@ -21,6 +21,15 @@ class Position(models.Model):
 
     source = models.IntegerField('Source', choices=SOURCES, default=1)
 
+    def __unicode__(self):
+        return u"%s %s: %.2f %2f %s" % (
+            self.callsign,
+            self.timestamp,
+            self.latitude,
+            self.longitude,
+            self.comment
+        )
+
     class Meta:
-        ordering = ['-timestamp']
+        ordering = ['callsign', '-timestamp']
         #unique_together = ['callsign', 'latitude', 'longitude', 'timestamp']

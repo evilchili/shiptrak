@@ -1,1 +1,0 @@
-/Users/evilchili/git/mmsn-shiptrak/shiptrak/static/js/shiptrak.js

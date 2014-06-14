@@ -168,14 +168,17 @@ a:active, a:hover {
     position:absolute;
     bottom:10px;
     left:10px;
+	right:10px;
     background-color: #222;
     z-index:9;
-    padding-bottom: 30px;
     max-height:30%;
+	overflow:auto;	
+	
 }
 #log table {
     width: 100%;
     background: #DADFEB;
+    margin-bottom: 30px;
 }
 #log_table th, 
 #log_table td {

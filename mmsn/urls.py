@@ -7,5 +7,6 @@ urlpatterns = patterns(
     url(r'^$', 'shiptrak.views.map', name='shiptrak'),
     url(r'^positions/', 'shiptrak.views.positions', name='positions'),
     url(r'^faq/', 'shiptrak.views.faq', name='faq'),
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
