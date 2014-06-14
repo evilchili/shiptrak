@@ -3,6 +3,7 @@ from shiptrak.models import Position
 from datetime import datetime
 import os
 import logging
+import ujson
 
 logger = logging.getLogger('default')
 
@@ -17,9 +18,9 @@ class CallsignCache():
         """
         return os.path.join(self.data_dir, callsign.lower() + '.json')
 
-    def read(self, callsign, days_ago=0):
+    def read_from_db(self, callsign):
         """
-        Read a cache file and return its contents
+        Return position records from the db in a format compatible with winlink/yotreps results.
         """
         data = {'positions': []}
         positions = Position.objects.filter(callsign__iexact=callsign)
@@ -36,7 +37,18 @@ class CallsignCache():
             })
         return data
 
-    def write(self, callsign, data):
+    def read(self, callsign, days_ago=0):
+        """
+        Read a cache file and return its contents
+        """
+        try:
+            with open(self._file_for_callsign(callsign), 'rb') as data_file:
+                positions = ujson.loads(data_file.read())
+        except:
+            positions = {'positions': []}
+        return positions
+
+    def write_db(self, callsign, data):
         """
         (Re)Write the callsign's cached data.
         """

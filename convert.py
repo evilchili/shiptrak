@@ -3,13 +3,29 @@ import re
 import time
 from shiptrak.cache import CallsignCache
 from shiptrak.models import Position
+from mmsn import settings
+
+
+cache = CallsignCache()
+
+
+def import_cache():
+    """
+    Import the json cache into the database.
+    """
+    for root, dirs, files in os.walk(settings.CACHE_DIR):
+        for f in files:
+            callsign = f[:-5]
+            positions = cache._to_position(callsign)
+            print "importing %d positions for %s" % (len(positions), callsign)
+            Position.objects.bulk_create(positions)
 
 
 def convert():
-
+    """
+    convert the old XML cache to JSON.
+    """
     old_path = 'old/data'
-
-    cache = CallsignCache()
 
     # <marker lat="-15.25" lng="41.1" src="WINLINK" date="2005-06-30 10:00:00" coords="015d 15.00 S / 041d 06.00 E" comment="M/V CORVIGLIA (bc), ETA Jeddah 09/July."/>
     attr_pat = re.compile('lat="(.+?)" lng="(.+?)".+?date="(.+?)".+comment="(.*)"')
@@ -36,3 +52,7 @@ def convert():
             cache.write(f[:-4], {'positions': data})
             positions = cache._to_position(f[:-4])
             Position.objects.bulk_create(positions)
+
+
+if __name__ == '__main__':
+    import_cache()

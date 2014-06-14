@@ -32,4 +32,4 @@ class Position(models.Model):
 
     class Meta:
         ordering = ['callsign', '-timestamp']
-        #unique_together = ['callsign', 'latitude', 'longitude', 'timestamp']
+        unique_together = ['callsign', 'latitude', 'longitude', 'timestamp']

@@ -53,8 +53,8 @@ def positions(request):
     # generic no-data message
     error = "No positions reported for %s in the last %s days." % (callsign, days_ago)
 
-    # load the cache
-    c_data = cache.read(callsign)
+    # load the db cache
+    c_data = cache.read_from_db(callsign)
     #logger.debug("CACHED: %s" % c_data)
 
     # get updated data from winlink
@@ -82,7 +82,7 @@ def positions(request):
     }
 
     # update the cache
-    cache.write(callsign, pos)
+    cache.write_db(callsign, pos)
 
     # now filter the results by date, if necessary
     if days_ago:
