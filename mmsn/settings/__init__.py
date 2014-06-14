@@ -90,8 +90,9 @@ CACHE_DIR = os.path.abspath(os.path.join(BASE_DIR, 'callsign_data'))
 WINLINK_API_URL = "http://server.winlink.org:8085/"
 YOTREPS_API_URL = "http://www.pangolin.co.nz/xtras/yotreps/v.php"
 
-(h, domain) = socket.gethostname().split('.', 2)
+h = socket.gethostname()
 try:
+    (h, domain) = h.split('.', 2)
     exec("from mmsn.settings.{0} import *".format(h)) in locals()
 except Exception as e:
     print "WARNING: Could not locate local settings for host '%s'" % h
