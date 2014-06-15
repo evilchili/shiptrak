@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+	<head>
+        <title>{% block title %}ShipTrak v4.0{% endblock %}</title>
+		<link rel='icon' 			href="/favicon.ico" type="image/x-icon" >
+		<link rel="shortcut icon" 	href="/favicon.ico" type="image/x-icon" > 
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <style type="text/css" media="screen,print">@import url({% static "css/shiptrak.css" %});</style> 
+	</head>
+    <body>
+        {% block nav %}{% endblock %}
+        {% block main %}
+            <div id='content' class="container" role="main">
+            {% block content %}
+            {% endblock %}
+            </div>
+        {% endblock %}
+        <div id='OverlayPopup'></div>
+        <div id='SharePopup' class='form-group'>
+            <p>
+            Copy and paste this link into an email or instant message:
+            <input class='share_url form-control' type='text'>
+            </p>
+            <p>
+            Copy and paste this code into your webpage to embed this map:
+            <input class='share_iframe form-control' type='text'>
+            </p>
+            <p>
+			Click this link to send this page via email:<br>
+			<a class='share_email' href=''>Email This Map</a>
+            </p>
+			<center><button onclick='closePopup(event);' class='btn btn-primary'>Okay</button></center>
+        </div>
+    </body>
+</html>
+

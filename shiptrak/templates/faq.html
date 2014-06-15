@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block nav %}
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div id='map-links nav-container'>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='/' title='Back To Map'><span class='glyphicon glyphicon-home'></span></a></li>
+            </ul>
+        </div>
+        <div>
+			<h4>About ShipTrak</h4>
+        </div>
+      </div>
+    </div>
+{% endblock nav %}
+
+{% block title %}
+About ShipTrak
+{% endblock %}
+
+{% block content %}
+<div class='row'>
+    <div class='col col-md-10'>
+        <p>
+        Ship<i>Trak</i> is free service of the Maritime Mobile Service Network. There is no registration and no payments required... unless you want to send me money! :)
+        </p>
+        <p>	
+        There is no direct data entry into Ship<i>Trak</i>.&nbsp; Ship<i>Trak</i> is 
+        another means of displaying the position reports <i>already</i> in the Winlink 2000 
+        and Yotreps databases.&nbsp; They are the source for the data and Ship<i>Trak</i> 
+        merely presents their&nbsp; data.&nbsp; If you wish to see a vessel on Ship<i>Trak</i>, 
+        the position report information for that vessel must <i>already</i> be in either of those 
+        two databases.<br>
+        </p>
+    </div>
+    <div class='col col-md-2'>
+        <img src="{% static "img/mmsn-logo1a.gif" %}" border='0'>
+    </div>
+</div>
+<p>
+Again, we would like to thank the <a href="http://winlink.org" target="_blank">Winlink 2000</a> and the 
+<a href="http://pangolin.co.nz" target="_blank">Yotreps</a> organizations for their help and participation in making Ship<i>Trak</i> work for you.
+</p>
+
+<h2>Using Ship<i>Trak</i></h2>
+<p>
+<ol>
+<li>Enter the callsign you wish to track in the callsign box</li>
+<li>Adjust the &quot;Show&quot; drop-down menu to see a limited time period of positions (optional)
+<li>click the &quot;View&quot; button.&nbsp; 
+</ol>
+<div class='alert alert-warning'>
+WARNING! To see the track of a vessel, you must know what callsign is being used to enter the 
+position reports! The callsign could be an amateur radio (ham radio) callsign, a marine SSB callsign or a boat name. 
+It's best to check with the boat so that you know. We have no idea what callsign a particular boat is using!
+</div>
+</p>
+
+<h2>Sharing, Linking and Embedding</h2>
+If you have your own web page, or maintain a web page for an RV'er or ship-at-sea, you can create a link from your web page to Ship<i>Trak</i>, or embed a map directly into your page.  
+It's very simple and adds a nice touch for your visitors.
+<ul>
+<li>Visit <a href='/'>Ship<i>Trak</i></a> and search for a callsign.
+<li>Click the Share icon</li>
+<li>Copy the link text (for static links or instant messages), or the embed code (for displaying the report on your own site)</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+
+<p>
+<h4>No Positions Found</h4>
+If Ship<i>Trak</i> reports &quot;No Positions Found For xxxx&quot;, it means that there are no positions for <i>that</i> callsign. Make sure you know the proper callsign for the boat, and that you entered it correctly.
+</p>
+
+<p>
+<h4>Browser Issues</h4>
+Occasionally, older browsers may have trouble with the map interface.  ShipTrak uses Google Maps; be sure to check the <a href='https://support.google.com/maps/'>Google Maps documentation</a> for solutions to common problems.
+</p>
+
+<h2>Questions? Problems?</h2>
+<p>
+You can email me with questions or bug reports at 
+<a href="mailto:ve3ii@mmsn.org?subject=ShipTrak V4 Qestion">this address</a>.
+</p>
+
+<p>
+<b>73 and best regards.....Tom VE3II</b>
+<br>
+<span class='address'>June 2014</span>
+</p>
+{% endblock %}

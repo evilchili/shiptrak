@@ -1,0 +1,273 @@
+body {
+	font-family: sans-serif;
+    font-size: 16px;
+	margin:0;
+	padding:0;	
+    background: #FFF;
+    color: #444;
+}
+
+a, a:visited, a:active, a:hover {
+    text-decoration:none;
+}
+
+#content {
+    margin-top: 50px;
+	background: #EEE;
+	margin-bottom: 50px;
+	box-shadow: 2px 2px 4px #888;
+}
+
+.navbar-brand img {
+    height: 100%;
+    vertical-align:top;
+    margin-right: 10px;
+}
+.jumbotron {
+    background: #2e5b7e;
+    color: #AAA;
+}
+.jumbotron a, .jumbotron a:visited {
+    color: #CCC;
+}
+.jumbotron h1 {
+    color: #EEE;
+}
+
+h2, h3, h4 {
+    color: #000;
+    margin-top: 1em;
+}
+
+a, a:visited {
+	color: #2e5b7e;
+	text-decoration:none;
+}
+a:active, a:hover {
+	color: #3987c9;
+}
+
+.tooltip { 
+	background-color: #FFF;
+	padding:3px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11pt;
+	color: #000;
+}
+
+#mapTitle {
+	color: yellow;
+	font-weight: bold;
+	padding:2px 5px;
+}
+
+
+#shiptrakUIContainer {
+	overflow:hidden;
+	background-color: #091336;
+	color: #999;
+	filter: alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+	font-size: 0.8em;
+	padding: 2px;
+	padding-bottom:5px;
+	width:100%;
+	margin:0;
+	margin-bottom:3px;
+	height:1.5em;
+}
+#shiptrakUIContainer input, #shiptrakUIContainer select {
+	margin-right:5px;
+	background: #FFF;
+	color:#000;
+	border: 1px solid #888;
+	font-variant: none;
+	letter-spacing: auto;
+}
+
+#shiptrakLogContainer {
+	background-color: #576B69;
+	font-size: 0.8em;
+	width:100%;
+	position:absolute;
+	height:30%;
+	overflow:auto;
+	color: #CCC;
+	padding: 0;
+	margin:0;
+	filter: alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+	display:none;
+}
+#leftFloater {
+	display:block;
+	float:left;
+	letter-spacing: 0.1em;
+	font-variant: small-caps;
+	margin-left:10px;
+}
+#rightFloater {
+	display:block;
+	float:right;
+	margin:0;
+	padding-top:2px;
+	margin-right:10px;
+}
+#rightFloater a, 
+#rightFloater a:visited, 
+#rightFloater a:active {
+	color: #1A9599;
+	font-weight:bold;
+	margin-left:10px;
+	text-decoration:none;
+}
+
+
+#embeddedLabel {
+	display:none;
+	margin-right:10px;
+	font-variant:none;
+}
+
+#OverlayPopup {
+    display:none;
+	position:absolute;
+	z-index:1000;
+	border: 1px solid #000;
+	background-color:#FFF;
+	color: #000;
+	padding: 0;
+	margin:0;
+	padding:10px;
+	font-size:0.8em;
+}
+#popup_closer {
+	float:right;
+    font-size: 1.5em;
+}
+#popup_header {
+    float:left;
+    font-weight: bold;
+}
+#popup_content {
+    display:block;
+    clear:both;
+}
+#SharePopup {
+    display:none;
+}
+
+#shiptrakLogToggle {
+	filter: alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+	font-size: 0.7em;
+	width:100%;
+}
+#log {
+    display:block;
+    position:absolute;
+    bottom:10px;
+    left:10px;
+	right:10px;
+    background: #2e5b7e;
+    z-index:9;
+    max-height:30%;
+	overflow:auto;	
+	
+}
+#log table {
+    width: 100%;
+    background: #EEE;
+    margin-bottom: 30px;
+}
+#log_table th, 
+#log_table td {
+    font-size: 0.9em;
+    padding:5px; 
+}
+#log_control {
+	display:none;
+	position:absolute;
+	bottom:10px;
+    left:10px;
+    background: #2e5b7e;
+	z-index:10;
+    padding:5px;
+    font-size:0.8em;
+}
+
+#log_control a,
+#log_control a:visited {
+    color: #999;
+}
+#log_control a:active,
+#log_control a:hover {
+    color: #FFF;
+}
+
+#log_header {
+    color: #DDD;
+}
+
+#logCloser {
+	background-color: #091336;
+}
+
+#interface {
+	display:block;
+}
+
+.nav li {
+    float:left;
+}
+.navbar {
+    background: #2e5b7e;
+    padding: 0px 15px;
+}
+
+#loading_img {
+    display:none;
+    max-height: 1em;
+}
+
+#map_form {
+    margin-left: -15px;
+}
+
+#map_form input {
+    margin: 3px 0px;
+}
+
+.navbar h4 {
+	color: #DDD;
+}
+
+.row {
+	margin: 2em 0;
+}
+
+.print #log {
+	position: relative;
+	overflow: show;
+	max-height: auto;
+	background: transparent;
+	bottom: auto;
+	left: auto;
+	right: auto;
+	top: auto;
+	max-height: auto;
+}
+.print table {
+	margin-bottom: 0px;
+	background: transparent;
+}
+.print table tr {
+	background: transparent;
+	border-bottom: 1px solid #DDD;
+}
+.print #log_table {
+	background: transparent;
+}
