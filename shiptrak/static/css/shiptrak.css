@@ -3,7 +3,7 @@ body {
     font-size: 16px;
 	margin:0;
 	padding:0;	
-    background: #2e5b7e;
+    background: #FFF;
     color: #444;
 }
 
@@ -12,8 +12,10 @@ a, a:visited, a:active, a:hover {
 }
 
 #content {
-    margin-top: 60px;
-	background: #FFF;
+    margin-top: 50px;
+	background: #EEE;
+	margin-bottom: 50px;
+	box-shadow: 2px 2px 4px #888;
 }
 
 .navbar-brand img {

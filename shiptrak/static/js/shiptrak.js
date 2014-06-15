@@ -206,7 +206,10 @@ $("document").ready(function() {
 			$('.navbar').hide();
 			$('body').css({'background': 'transparent'});
 		} else {
-			$('body').css({'overflow': 'hide'});
+			$('body').css({
+				'overflow': 'hide', 
+				'background': '#2e5b7e'
+			});
 			var mObj = $("#map");
 			mObj.css({
                 position:'absolute',
