@@ -440,7 +440,7 @@ $("document").ready(function() {
 	// display the sharing options in an overlay dialog
 	ShipTrak.showShare = function() {
 		var callsign 	= $('#id_callsign').value;
-		var url = ShipTrak.getMapURL();
+		var url = window.location.href;
 		var embed = "<iframe id='shiptrakIframe' style='width:300px;height:300px;border:1px solid #000' "+ 
 					"src'"+url+"&embedded=1' frameborder='0' framespacing='0'>";
         var email = 'mailto:?subject=ShipTrak Report For ' + callsign + '&body=' + url;
