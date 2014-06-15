@@ -204,9 +204,9 @@ $("document").ready(function() {
 		if ( ShipTrak.isPrint ) {
 			$("#wrapper").addClass('print');
 			$('.navbar').hide();
-			$('body').css({'overflow': 'auto', 'background': 'transparent'});
+			$('body').css({'background': 'transparent'});
 		} else {
-			$('body').css({'overflow': 'auto'});
+			$('body').css({'overflow': 'hide'});
 			var mObj = $("#map");
 			mObj.css({
                 position:'absolute',
