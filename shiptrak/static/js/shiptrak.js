@@ -113,9 +113,9 @@ $("document").ready(function() {
 	//
 	ShipTrak.dd2dms = function(num, isLat) {
 	
-	    var dir = isLat ? 'N' : 'W';
+	    var dir = isLat ? 'N' : 'E';
 	    if (num < 0) {
-	        dir = isLat ? 'S' : 'E';
+	        dir = isLat ? 'S' : 'W';
 	        num = -1 * num;
 	    }
 	
