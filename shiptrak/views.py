@@ -23,7 +23,7 @@ def faq(request, template='faq.html'):
     """
     Display the FAQ page
     """
-    return render_to_response(template, {})
+    return render_to_response(template, {'GOOGLE_ANALYTICS_ID': settings.GOOGLE_ANALYTICS_ID})
 
 
 def map(request, template='map.html'):
@@ -32,6 +32,7 @@ def map(request, template='map.html'):
     """
     context = {
         'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY,
+        'GOOGLE_ANALYTICS_ID': settings.GOOGLE_ANALYTICS_ID,
         'STATIC_URL': settings.STATIC_URL
     }
     return render_to_response(template, context)
