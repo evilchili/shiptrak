@@ -12,3 +12,5 @@ DATABASES = {
 
 # Static asset configuration
 GOOGLE_MAPS_API_KEY = 'AIzaSyClHPTICWzf0efgMoav_d3MXiKS3G-5gQg'
+
+GOOGLE_ANALYTICS_ID = ''
