@@ -14,10 +14,6 @@ logger = logging.getLogger('default')
 
 cache = CallsignCache()
 
-# KB6OYO   08/04/2003 04:3015 55 N 114 35 W2554.2WNW14 NW 1.20  1014  0
-yotreps_pattern = re.compile(
-    '^\w+\s*(\d\d/\d\d/\d\d\d\d\s.{5})(\d+)\s*(\d+)\s*(\w)\s*(\d+)\s*(\d+)\s*(\w)')
-
 
 def faq(request, template='faq.html'):
     """
@@ -110,12 +106,15 @@ def _yotreps_positions(callsign):
     """
     Retrieve position data from yotreps.
     """
+
+    callsign = callsign.upper()
+
     pos = []
     params = {
         'sl': callsign,
-        'fm': '0000-00-00 00:00:00',
-        'to': datetime.now().strftime('%Y-%m-%d %T'),
-        'au': 999999999
+        'fm': '00000000',
+        'to': datetime.now().strftime('%d%m%Y'),
+        'au': 99999999
     }
     try:
         res = requests.get(
@@ -130,24 +129,26 @@ def _yotreps_positions(callsign):
         error = "Unable to retrieve data from YOTREPS. Please try again."
     else:
         error = None
-        # KB6OYO   08/04/2003 04:3015 55 N 114 35 W2554.2WNW14 NW 1.20  1014  0
         data = res.content
-        if data.index('No reports found') != -1:
+
+        if 'No reports found' not in data:
+
+            # eg: KB6OYO   08/04/2003 04:3015 55 N 114 35 W2554.2WNW14 NW 1.20  1014  0
+            pat = re.compile(
+                '%s\s*(\d\d/\d\d/\d{4}\s.{5})(\d+)\s*(\d+)\s*(\w)\s*(\d+)\s*(\d+)\s*(\w)' % callsign
+            )
             source = [x[0] for x in Position.SOURCES if x[1] == 'YOTREPS'][0]
             for rec in data.split('\n'):
-                m = yotreps_pattern.match(rec)
-                if m is None:
-                    continue
-
-                [date, latdeg, latmin, latdir, londeg, lonmin, londir] = m.groups()
-                date = int(time.mktime(time.strptime(date, "%d/%m/%Y %H:%M")))
-                pos.append({
-                    'lat': _dms2dd(latdeg, latmin, 0, latdir),
-                    'lon': _dms2dd(londeg, lonmin, 0, londir),
-                    'comment': 'YOTREPS',
-                    'date': date,
-                    'source': source,
-                })
+                for match in pat.findall(rec, re.DOTALL):
+                    [date, latdeg, latmin, latdir, londeg, lonmin, londir] = match
+                    date = int(time.mktime(time.strptime(date, "%d/%m/%Y %H:%M")))
+                    pos.append({
+                        'lat': _dms2dd(latdeg, latmin, 0, latdir),
+                        'lon': _dms2dd(londeg, lonmin, 0, londir),
+                        'comment': 'YOTREPS',
+                        'date': date,
+                        'source': source,
+                    })
     return {'error': error, 'positions': pos}
 
 
