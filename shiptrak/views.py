@@ -96,7 +96,7 @@ def _dms2dd(d, m, s, dir):
     """
     convert lat/lon degrees/minutes/seconds into decimal degrees
     """
-    degrees = int(d) + (int(m) / 60) + (int(s) / 60) / 60
+    degrees = float(d) + (float(m) / 60) + (float(s) / 3600)
     if dir in ['S', 'W']:
         degrees = degrees * -1
     return degrees
@@ -140,6 +140,7 @@ def _yotreps_positions(callsign):
             source = [x[0] for x in Position.SOURCES if x[1] == 'YOTREPS'][0]
             for rec in data.split('\n'):
                 for match in pat.findall(rec, re.DOTALL):
+                    # ('22/08/2014 07:27', '49', '27', 'N', '002', '31', 'W')
                     [date, latdeg, latmin, latdir, londeg, lonmin, londir] = match
                     date = int(time.mktime(time.strptime(date, "%d/%m/%Y %H:%M")))
                     pos.append({
