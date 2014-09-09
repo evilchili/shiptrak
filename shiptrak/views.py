@@ -142,7 +142,7 @@ def _yotreps_positions(callsign):
                 for match in pat.findall(rec, re.DOTALL):
                     # ('22/08/2014 07:27', '49', '27', 'N', '002', '31', 'W')
                     [date, latdeg, latmin, latdir, londeg, lonmin, londir] = match
-                    date = int(time.mktime(time.strptime(date, "%d/%m/%Y %H:%M")))
+                    date = int(time.mktime(time.strptime(date, "%d/%m/%Y %H:%M"))) * 1000
                     pos.append({
                         'lat': _dms2dd(latdeg, latmin, 0, latdir),
                         'lon': _dms2dd(londeg, lonmin, 0, londir),
