@@ -21,9 +21,26 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 SECRET_KEY = 'd%ehat=&bb5pr+=unsxmpxq(57@1nx+okkyni3n9lk!a#pduq&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'shiptrak', 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                #"django.core.context_processors.request",
+                #"django.contrib.auth.context_processors.auth",
+            ],
+        },
+    },
+]
+
 
 ALLOWED_HOSTS = []
 
@@ -85,10 +102,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.core.context_processors.request",
-    "django.contrib.auth.context_processors.auth",
-)
 
 LOGGING = {
     'version': 1,
@@ -117,7 +130,8 @@ YOTREPS_API_URL = "http://www.pangolin.co.nz/xtras/yotreps/v.php"
 h = socket.gethostname()
 try:
     (h, domain) = h.split('.', 2)
+    print "from mmsn.settings.{0} import *".format(h)
     exec("from mmsn.settings.{0} import *".format(h)) in locals()
 except Exception as e:
-    print "WARNING: Could not locate local settings for host '%s'" % h
+    print "Warning: Could not locate local settings for host '%s'. Falling back to production." % h
     from production import *

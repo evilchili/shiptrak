@@ -13,7 +13,7 @@ DATABASES = {
     'default':  dj_database_url.config()
 }
 
-DEBUG = False
+DEBUG = True
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyDHRIu1CdX0O95_bTdyyiom4Z84uzKG0bw'
 
