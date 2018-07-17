@@ -165,8 +165,8 @@ def _winlink_positions(callsign):
         attempts = attempts - 1
         try:
             res = requests.post(
-                "%s/positionReports/get.json" % settings.WINLINK_API_URL,
-                data={'callsign': callsign},
+                "%s/json/reply/PositionReportsGet.json" % settings.WINLINK_API_URL,
+                data={'Callsign': callsign},
                 timeout=5,
             )
         except requests.exceptions.Timeout:
