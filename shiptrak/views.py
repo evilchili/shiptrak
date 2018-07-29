@@ -62,7 +62,7 @@ def positions(request):
     # We start with the oldest cached data first, then yotreps, then winlink, as the
     # latter is judged to be most reliable.
     pos = {}
-    for dataset in [c_data, y_data, w_data]:
+    for dataset in [c_data, w_data]:
         for p in dataset['positions']:
             dt = datetime.fromtimestamp(float(p['date']) / 1e3).strftime('%Y-%m-%d %H:%M')
             pos[dt] = p
@@ -110,10 +110,12 @@ def _winlink_positions(callsign):
         attempts = attempts - 1
         try:
             res = requests.post(
-                "%s/json/reply/PositionReportsGet.json" % settings.WINLINK_API_URL,
-                data={'Callsign': callsign},
+                "%s/positionreports/get" % settings.WINLINK_API_URL,
+                data={'Callsign': callsign, 'Key': '3DA3F92FAE834F3D8F524A0F000B3629'},
                 timeout=5,
+                headers={'Accept': 'application/json'}
             )
+            logger.debug(res.text)
         except requests.exceptions.Timeout:
             pass
         if res.status_code == 200:

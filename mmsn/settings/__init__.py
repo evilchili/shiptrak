@@ -124,7 +124,7 @@ GOOGLE_MAPS_API_KEY = ''
 
 CACHE_DIR = os.path.abspath(os.path.join(BASE_DIR, 'callsign_data'))
 
-WINLINK_API_URL = "http://server.winlink.org:8085/"
+WINLINK_API_URL = "http://cms.winlink.org/"
 
 h = socket.gethostname()
 try:
