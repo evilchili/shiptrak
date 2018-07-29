@@ -58,10 +58,6 @@ def positions(request):
     w_data = _winlink_positions(callsign) or {}
     #logger.debug("WINLINK: %s" % w_data)
 
-    # get updated data from yotreps
-    y_data = _yotreps_positions(callsign) or {}
-    #logger.debug("YOTREPS: %s" % y_data)
-
     # merge the datasets by building a dict with keys by timestamp (minute precision).
     # We start with the oldest cached data first, then yotreps, then winlink, as the
     # latter is judged to be most reliable.
@@ -100,57 +96,6 @@ def _dms2dd(d, m, s, dir):
     if dir in ['S', 'W']:
         degrees = degrees * -1
     return degrees
-
-
-def _yotreps_positions(callsign):
-    """
-    Retrieve position data from yotreps.
-    """
-
-    callsign = callsign.upper()
-
-    pos = []
-    params = {
-        'sl': callsign,
-        'fm': '00000000',
-        'to': datetime.now().strftime('%d%m%Y'),
-        'au': 99999999
-    }
-    try:
-        res = requests.get(
-            settings.YOTREPS_API_URL,
-            params=params,
-            timeout=5,
-        )
-    except requests.exceptions.Timeout:
-        pass
-
-    if res.status_code != 200:
-        error = "Unable to retrieve data from YOTREPS. Please try again."
-    else:
-        error = None
-        data = res.content
-
-        if 'No reports found' not in data:
-
-            # eg: KB6OYO   08/04/2003 04:3015 55 N 114 35 W2554.2WNW14 NW 1.20  1014  0
-            pat = re.compile(
-                '%s\s*(\d\d/\d\d/\d{4}\s.{5})(\d+)\s*(\d+)\s*(\w)\s*(\d+)\s*(\d+)\s*(\w)' % callsign
-            )
-            source = [x[0] for x in Position.SOURCES if x[1] == 'YOTREPS'][0]
-            for rec in data.split('\n'):
-                for match in pat.findall(rec, re.DOTALL):
-                    # ('22/08/2014 07:27', '49', '27', 'N', '002', '31', 'W')
-                    [date, latdeg, latmin, latdir, londeg, lonmin, londir] = match
-                    date = int(time.mktime(time.strptime(date, "%d/%m/%Y %H:%M"))) * 1000
-                    pos.append({
-                        'lat': _dms2dd(latdeg, latmin, 0, latdir),
-                        'lon': _dms2dd(londeg, lonmin, 0, londir),
-                        'comment': 'YOTREPS',
-                        'date': date,
-                        'source': source,
-                    })
-    return {'error': error, 'positions': pos}
 
 
 def _winlink_positions(callsign):

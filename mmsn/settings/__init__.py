@@ -125,7 +125,6 @@ GOOGLE_MAPS_API_KEY = ''
 CACHE_DIR = os.path.abspath(os.path.join(BASE_DIR, 'callsign_data'))
 
 WINLINK_API_URL = "http://server.winlink.org:8085/"
-YOTREPS_API_URL = "http://www.pangolin.co.nz/xtras/yotreps/v.php"
 
 h = socket.gethostname()
 try:
