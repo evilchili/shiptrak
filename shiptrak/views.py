@@ -110,7 +110,7 @@ def _winlink_positions(callsign):
         attempts = attempts - 1
         try:
             res = requests.post(
-                "%s/positionreports/get" % settings.WINLINK_API_URL,
+                "%s/position/reports/get" % settings.WINLINK_API_URL,
                 data={'Callsign': callsign, 'Key': '3DA3F92FAE834F3D8F524A0F000B3629'},
                 timeout=5,
                 headers={'Accept': 'application/json'}
