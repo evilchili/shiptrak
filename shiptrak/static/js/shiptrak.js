@@ -270,6 +270,10 @@ $("document").ready(function() {
 			alert("Please enter a callsign.");
 			return;
 		}
+
+        if ( callsign.length < 3 || callsign.lenegth > 8 ) {
+            alert("A valid callsign must be between 3 and 8 characters.");
+        }
 	
 		var filter = $('#id_filter').val();
 	

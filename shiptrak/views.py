@@ -57,6 +57,11 @@ def positions(request):
 
     # get updated data from winlink
     w_data = _winlink_positions(callsign) or {}
+    try:
+        error = w_data['error']
+    except KeyError:
+        pass
+
     #logger.debug("WINLINK: %s" % w_data)
 
     # merge the datasets by building a dict with keys by timestamp (minute precision).
@@ -116,34 +121,43 @@ def _winlink_positions(callsign):
                 timeout=5,
                 headers={'Accept': 'application/json'}
             )
+            logger.debug(res.status_code)
             logger.debug(res.text)
         except requests.exceptions.Timeout:
             pass
-        if res.status_code == 200:
-            data = ujson.loads(res.content)
-            # {u'ErrorCode': 0, u'PositionReports': [
-            #   {u'Comment':    u'Jubilant @ Ko Rok Nok Island, Thailand',
-            #    u'Yotreps':    True,
-            #    u'ReportedBy':    u'KB7SM',
-            #    u'Timestamp':    u'/Date(1379071860000)/',
-            #    u'Longitude':    99.0688333333333,
-            #    u'Callsign':    u'KB7SM',
-            #    u'Aprs':    False,
-            #    u'Latitude':    7.21216666666667,
-            #    u'Speed':    u'',
-            #    u'Heading':    u'',
-            #    u'Marine': False},
-            # ]}
-            #
-            source = [x[0] for x in Position.SOURCES if x[1] == 'WinLink'][0]
-            for p in data['PositionReports']:
-                pos.append({
-                    'lat': p['Latitude'],
-                    'lon': p['Longitude'],
-                    'comment': p['Comment'],
-                    'date': int(p['Timestamp'][6:-2]),
-                    'source': source
-                })
-            error = None
+
+        data = ujson.loads(res.content)
+
+        if res.status_code == 400:
+            error = "WinLink returned an error: {}".format(data['ResponseStatus']['Message'])
+
+        if res.status_code != 200:
             break
+
+
+        # {u'ErrorCode': 0, u'PositionReports': [
+        #   {u'Comment':    u'Jubilant @ Ko Rok Nok Island, Thailand',
+        #    u'Yotreps':    True,
+        #    u'ReportedBy':    u'KB7SM',
+        #    u'Timestamp':    u'/Date(1379071860000)/',
+        #    u'Longitude':    99.0688333333333,
+        #    u'Callsign':    u'KB7SM',
+        #    u'Aprs':    False,
+        #    u'Latitude':    7.21216666666667,
+        #    u'Speed':    u'',
+        #    u'Heading':    u'',
+        #    u'Marine': False},
+        # ]}
+        #
+        source = [x[0] for x in Position.SOURCES if x[1] == 'WinLink'][0]
+        for p in data['PositionReports']:
+            pos.append({
+                'lat': p['Latitude'],
+                'lon': p['Longitude'],
+                'comment': p['Comment'],
+                'date': int(p['Timestamp'][6:-2]),
+                'source': source
+            })
+        error = None
+        break
     return {'error': error, 'positions': pos}
