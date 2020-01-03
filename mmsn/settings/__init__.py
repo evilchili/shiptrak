@@ -137,6 +137,7 @@ try:
 except Exception as e:
     SECRET_KEY = get_random_string(50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
     ALLOWED_HOSTS = ['*']
+    CSRF_TRUSTED_ORIGINS = ['.shiptrak.org', '.mmsn-shiptrak.herokuapp.com']
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
     DATABASES = {
         'default':  dj_database_url.config()
