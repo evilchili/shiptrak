@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 import requests
 import ujson
 import os
+import re
 from shiptrak.cache import CallsignCache
 from shiptrak.models import Position
 import logging
@@ -12,6 +13,12 @@ import logging
 logger = logging.getLogger('default')
 
 cache = CallsignCache()
+
+CALLSIGN_PATTERN = re.compile('^(?=.*\\d{2})[a-z0-9]{3,8}$', re.IGNORECASE)
+
+
+def _valid_callsign(callsign):
+    return CALLSIGN_PATTERN.match(callsign)
 
 
 def faq(request, template='faq.html'):
@@ -46,7 +53,7 @@ def positions(request):
     if not callsign:
         return HttpResponse()
 
-    if len(callsign) < 3 or len(callsign) > 8:
+    if not _valid_callsign(callsign):
         pos = {
             'error': 'You have entered an invalid callsign. Please try again.',
             'positions': []
