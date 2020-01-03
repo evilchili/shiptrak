@@ -133,8 +133,8 @@ try:
     (h, domain) = h.split('.', 2)
     print("from mmsn.settings.{0} import *".format(h))
     exec(("from mmsn.settings.{0} import *".format(h)), locals())
+    print("Overriding production configuration with local settings for host {}".format(h))
 except Exception as e:
-    print("Warning: Could not locate local settings for host '%s'. Falling back to production." % h)
     SECRET_KEY = get_random_string(50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
     ALLOWED_HOSTS = ['*']
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
