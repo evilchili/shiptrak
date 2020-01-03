@@ -1,12 +1,10 @@
 from django.conf import settings
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime, timedelta
 import requests
 import ujson
 import os
-import re
-import time
 from shiptrak.cache import CallsignCache
 from shiptrak.models import Position
 import logging
@@ -20,7 +18,7 @@ def faq(request, template='faq.html'):
     """
     Display the FAQ page
     """
-    return render_to_response(template, {'GOOGLE_ANALYTICS_ID': settings.GOOGLE_ANALYTICS_ID})
+    return render(request, template, {'GOOGLE_ANALYTICS_ID': settings.GOOGLE_ANALYTICS_ID})
 
 
 def map(request, template='map.html'):
@@ -32,7 +30,7 @@ def map(request, template='map.html'):
         'GOOGLE_ANALYTICS_ID': settings.GOOGLE_ANALYTICS_ID,
         'STATIC_URL': settings.STATIC_URL
     }
-    return render_to_response(template, context)
+    return render(request, template, context)
 
 
 def positions(request):
@@ -76,8 +74,8 @@ def positions(request):
     # prepare a json-encoded response with the merged data sorted by date.
     # WAT: We wipe out any previously-set error here, but we probably don't care.
     pos = {
-        'error': None if pos.values() else error,
-        'positions': sorted(pos.values(), key=lambda x: x['date'])
+        'error': None if list(pos.values()) else error,
+        'positions': sorted(list(pos.values()), key=lambda x: x['date'])
     }
 
     # update the cache
@@ -117,7 +115,7 @@ def _winlink_positions(callsign):
         try:
             res = requests.post(
                 "%s/position/reports/get" % settings.WINLINK_API_URL,
-                data={'Callsign': callsign, 'Key': os.environ['WINLINK_API_KEY'] },
+                data={'Callsign': callsign, 'Key': os.environ['WINLINK_API_KEY']},
                 timeout=5,
                 headers={'Accept': 'application/json'}
             )
@@ -133,7 +131,6 @@ def _winlink_positions(callsign):
 
         if res.status_code != 200:
             break
-
 
         # {u'ErrorCode': 0, u'PositionReports': [
         #   {u'Comment':    u'Jubilant @ Ko Rok Nok Island, Thailand',

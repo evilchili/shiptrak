@@ -67,7 +67,7 @@ class CallsignCache():
             return {'positions': []}
 
         Position.objects.filter(callsign__iexact=callsign).delete()
-        Position.objects.bulk_create(positions.values())
+        Position.objects.bulk_create(list(positions.values()))
 
     def _to_position(self, callsign):
         data = self.read(callsign)

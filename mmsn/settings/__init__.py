@@ -58,7 +58,7 @@ INSTALLED_APPS = (
     'shiptrak',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -129,8 +129,8 @@ WINLINK_API_URL = "http://cms.winlink.org/"
 h = socket.gethostname()
 try:
     (h, domain) = h.split('.', 2)
-    print "from mmsn.settings.{0} import *".format(h)
-    exec("from mmsn.settings.{0} import *".format(h)) in locals()
+    print("from mmsn.settings.{0} import *".format(h))
+    exec(("from mmsn.settings.{0} import *".format(h)), locals())
 except Exception as e:
-    print "Warning: Could not locate local settings for host '%s'. Falling back to production." % h
-    from production import *
+    print("Warning: Could not locate local settings for host '%s'. Falling back to production." % h)
+    from .production import *
