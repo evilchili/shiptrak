@@ -14,7 +14,7 @@ logger = logging.getLogger('default')
 
 cache = CallsignCache()
 
-CALLSIGN_PATTERN = re.compile('^(?=(.*\\d){2})[a-zA-Z0-9]{3,8}$', re.IGNORECASE)
+CALLSIGN_PATTERN = re.compile('^(?=(.*\\d))[a-zA-Z0-9]{3,8}$', re.IGNORECASE)
 
 
 def _valid_callsign(callsign):
