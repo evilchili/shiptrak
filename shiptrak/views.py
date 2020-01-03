@@ -46,6 +46,13 @@ def positions(request):
     if not callsign:
         return HttpResponse()
 
+    if len(callsign) < 3 or len(callsign) > 8:
+        pos = {
+            'error': 'You have entered an invalid callsign. Please try again.',
+            'positions': []
+        }
+        return HttpResponse(ujson.dumps(pos), content_type="application/json")
+
     # generic no-data message
     error = "No positions reported for %s in the last %s days." % (callsign, days_ago)
 
