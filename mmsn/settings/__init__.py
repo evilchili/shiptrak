@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 import socket
+import dj_database_url
+from django.utils.crypto import get_random_string
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -133,4 +135,12 @@ try:
     exec(("from mmsn.settings.{0} import *".format(h)), locals())
 except Exception as e:
     print("Warning: Could not locate local settings for host '%s'. Falling back to production." % h)
-    from .production import *
+    SECRET_KEY = get_random_string(50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
+    ALLOWED_HOSTS = ['*']
+    BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
+    DATABASES = {
+        'default':  dj_database_url.config()
+    }
+    DEBUG = False
+    GOOGLE_MAPS_API_KEY = 'AIzaSyDHRIu1CdX0O95_bTdyyiom4Z84uzKG0bw'
+    GOOGLE_ANALYTICS_ID = 'UA-52163451-1'
