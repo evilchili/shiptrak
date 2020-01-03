@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from datetime import datetime, timedelta
 import requests
 import ujson
+import os
 import re
 import time
 from shiptrak.cache import CallsignCache
@@ -111,7 +112,7 @@ def _winlink_positions(callsign):
         try:
             res = requests.post(
                 "%s/position/reports/get" % settings.WINLINK_API_URL,
-                data={'Callsign': callsign, 'Key': '3DA3F92FAE834F3D8F524A0F000B3629'},
+                data={'Callsign': callsign, 'Key': os.environ['WINLINK_API_KEY'] },
                 timeout=5,
                 headers={'Accept': 'application/json'}
             )
